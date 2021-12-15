@@ -1,0 +1,31 @@
+{% extends "AppTransporte/padre.html" %}
+
+{% load static %}
+
+        {% block contenido2 %}
+
+            <h1 class="mb-1">Formulario de Chofer</h1>
+
+        {% endblock %}
+
+        {% block contenido %}
+
+            {% if miFormulario.errors %}
+
+                <p>ERROOOORRR!!!!!</p>
+
+            {% endif %}
+
+            <form action="/AppTransporte/choferFormulario" method="POST"> {% csrf_token %}
+               
+                <table>
+
+                    {{ miFormulario.as_table }}
+                    
+                </table>
+
+                <input type="submit" value="Enviar">
+
+            </form>
+
+        {% endblock %}
